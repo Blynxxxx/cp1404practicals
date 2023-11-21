@@ -6,7 +6,7 @@ MINIMUM_LENGTH = 10
 
 def main():
     """Get password and display asterisks as long as the word."""
-    password = get_password("Input your password: ", MINIMUM_LENGTH)
+    password = get_password()
     display_asterisks(password)
 
 
@@ -15,12 +15,12 @@ def display_asterisks(password):
     print("*" * len(password))
 
 
-def get_password(prompt, length):
+def get_password():
     """Get valid password based on the password length."""
-    password = input(prompt)
-    while len(password) < length:
+    password = input("Input your password: ")
+    while len(password) < MINIMUM_LENGTH:
         print("invalid password")
-        password = input(prompt)
+        password = input("Input your password: ")
     return password
 
 
