@@ -1,4 +1,5 @@
 """
+CP1404/CP5632 - Practical
 Menu
 """
 MENU = "(G)et a valid score\n(P)rint result\n(S)how stars\n(Q)uit"
@@ -8,8 +9,9 @@ PASSABLE_SCORE = 50
 EXCELLENT_SCORE = 90
 DEFAULT_SCORE = -1
 
+
 def main():
-    "Get score, display result and asterisks."
+    """Get score, display result and asterisks."""
     score = DEFAULT_SCORE
     print(MENU)
     choice = input("input your choice: ").upper()
