@@ -9,7 +9,7 @@ Q - Quit"""
 
 
 def main():
-    """Get user choice and convert Celsius to Fahrenheit and vice versa."""
+    """Get user choice and display the convert Celsius to Fahrenheit and vice versa."""
     print(MENU)
     choice = input(">>> ").upper()
     while choice != "Q":
