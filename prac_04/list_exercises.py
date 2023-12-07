@@ -2,6 +2,7 @@
 CP1404/CP5632 Practical - Suggested Solution
 List exercises
 """
+
 numbers = []
 for i in range(5):
     number = int(input("Number: "))

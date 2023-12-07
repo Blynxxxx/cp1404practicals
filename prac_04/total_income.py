@@ -22,7 +22,7 @@ def display_report(incomes):
     total = 0
     for month, income in enumerate(incomes, 1):
         total += income
-        print(f"Month {month:2} - Income: ${income:10.2f} {'':10}Total: ${total:10.2f}")
+        print(f"Month {month:2} - Income: ${income:10.2f} {'Total :':>15} ${total:10.2f}")
 
 
 main()
