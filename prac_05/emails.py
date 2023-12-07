@@ -25,4 +25,5 @@ def get_name_from_email(email):
     name = " ".join(email[:email.find("@")].split(".")).title()
     return name
 
+
 main()
