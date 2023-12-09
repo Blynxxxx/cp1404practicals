@@ -13,11 +13,12 @@ def main():
     my_car.drive(30)
     print(f"Car has fuel: {my_car.fuel}")
     print(my_car)
-    second_car = Car("limo",100)
-    second_car.add_fuel(20)
-    print(f"{second_car.name} car has fuel: {second_car.fuel}")
-    second_car.drive(115)
-    print(second_car)
+
+    limo = Car("Limo", 100)
+    limo.add_fuel(20)
+    print(f"{limo.name} car has fuel: {limo.fuel}")
+    limo.drive(115)
+    print(limo)
 
 
 main()
