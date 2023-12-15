@@ -11,5 +11,5 @@ Main lessons you have learned about "clean code" in this subject:
 - The single responsibility principle (SRP): states that a module should be responsible to one, and only one, actor.
  ## Notes
 There are some helpful links: 
-- The [Programming Patterns](https://github.com/CP1404/Starter/wiki/Programming-Patterns) page 
+- The [Programming Patterns](https://github.com/CP1404/Starter/wiki/Programming-Patterns) page.
 - The CP1404 [Practicals instructions](https://github.com/CP1404/Practicals/blob/master/README.md) repo.
