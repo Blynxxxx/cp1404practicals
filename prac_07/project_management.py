@@ -22,9 +22,13 @@ def main():
         elif choice == "S":
             out_file = input("Input filename to save objects: ")
             save_projects(out_file, projects)
-
+            print("Project file saved.")
         elif choice == "D":
-            pass
+            projects.sort()
+            print("Incomplete projects:")
+            display_projects(projects, False)
+            print("completed projects:")
+            display_projects(projects, True)
         elif choice == "F":
             pass
         elif choice == "A":
@@ -54,10 +58,17 @@ def get_projects(filename):
 
 
 def save_projects(filename, projects):
+    """Save list of project objects to a file."""
     with open(filename, "w") as out_file:
-        out_file.write(FILE_FIELD)
+        out_file.write(FILE_FIELD)  # add fields as the first line
         for project in projects:
             print(project, file=out_file)
+
+
+def display_projects(projects, condition):
+    for project in projects:
+        if project.is_complete() == condition:
+            print(f"\t{project}")
 
 
 main()
