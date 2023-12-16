@@ -27,12 +27,16 @@ def main():
             projects.sort()
             print("Incomplete projects:")
             display_projects(projects, False)
-            print("completed projects:")
+            print("Completed projects:")
             display_projects(projects, True)
         elif choice == "F":
-            pass
+            date_string = input("Show projects that start after date (dd/mm/yy):")
+            date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+            filtered_projects = filter_projects(projects, date)
+            for project in filtered_projects:
+                print(project)
         elif choice == "A":
-            pass
+            add_new_project(projects)
         elif choice == "U":
             pass
         else:
@@ -69,6 +73,28 @@ def display_projects(projects, condition):
     for project in projects:
         if project.is_complete() == condition:
             print(f"\t{project}")
+
+
+def filter_projects(projects, date):
+    filtered_projects = [project for project in projects if project.start_date >= date]
+    return filtered_projects
+
+
+def add_new_project(projects):
+    """Ask the user for the inputs and add a new project to memory"""
+    print("Let's add a new project")
+    project_name = input("Name: ")
+    start_date = input("Start date (dd/mm/yy): ")
+    priority = int(input("Priority: "))
+    cost_estimate = float(input("Cost estimate: $"))
+    completion_percentage = int(input("Percent complete: "))
+    new_project = Project(project_name, start_date, priority, cost_estimate, completion_percentage)
+    projects.append(new_project)
+
+
+def update_project(projects):
+    for i, project in enumerate(projects, 1):
+        print(f"{i} {project}")
 
 
 main()
