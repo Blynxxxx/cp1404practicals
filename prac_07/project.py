@@ -24,7 +24,9 @@ class Project:
         f" estimate: ${self.cost_estimate:.2f}, completion: {self.completion_percentage}%"
 
     def __lt__(self, other):
+        """Compare Project priority."""
         return self.priority < other.priority
 
     def is_complete(self):
+        """Determine whether Project is completed or not."""
         return self.completion_percentage == COMPLETION_PERCENTAGE
