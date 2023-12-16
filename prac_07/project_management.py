@@ -38,7 +38,7 @@ def main():
         elif choice == "A":
             add_new_project(projects)
         elif choice == "U":
-            pass
+            update_project(projects)
         else:
             print("Invalid choice.")
         print(MENU)
@@ -93,8 +93,15 @@ def add_new_project(projects):
 
 
 def update_project(projects):
-    for i, project in enumerate(projects, 1):
+    for i, project in enumerate(projects):
         print(f"{i} {project}")
-
+    project_choice = int(input("Project choice: "))
+    print(projects[project_choice])
+    new_percentage = int(input("New Percentage: "))
+    new_priority = int(input("New Priority: "))
+    if new_percentage:
+        projects[project_choice].completion_percentage = new_percentage
+    if new_priority:
+        projects[project_choice].completion_percentage = new_percentage
 
 main()
