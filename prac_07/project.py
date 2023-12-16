@@ -4,7 +4,7 @@ Project Management Program
 12:15 - 13:00
 """
 import datetime
-COMPLETION_NUMBER = 100
+COMPLETION_PERCENTAGE = 100
 
 
 class Project:
@@ -27,4 +27,4 @@ class Project:
         return self.priority < other.priority
 
     def is_complete(self):
-        return self.completion_percentage == COMPLETION_NUMBER
+        return self.completion_percentage == COMPLETION_PERCENTAGE
