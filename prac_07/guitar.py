@@ -28,4 +28,5 @@ class Guitar:
         return self.get_age() >= VINTAGE_AGE
 
     def __lt__(self, other):
+        """Compare year of guitar."""
         return self.year < other.year
