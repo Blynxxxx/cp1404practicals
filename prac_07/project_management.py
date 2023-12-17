@@ -1,10 +1,10 @@
 """
 Project Management Program
-6:00 -
+estimate time = 5 hours
 """
 import datetime
-
 from prac_07.project import Project
+
 
 FILE_FIELD = "Name	Start Date	Priority	Cost Estimate	Completion Percentage\n"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects" \
@@ -26,19 +26,19 @@ def main():
         elif choice == "D":
             validate_projects(projects)
             projects.sort()
-            incomplete_projects, completed_projects = create_two_groups(projects)
+            incomplete_projects, completed_projects = divide_projects(projects)
             print("Incomplete projects:")
             display_project(incomplete_projects, " ")
             print("Completed projects:")
             display_project(completed_projects, " ")
         elif choice == "F":
             validate_projects(projects)
-            date_string = input("Show projects that start after date (dd/mm/yy):")
+            date_string = input("Show projects that start after date (dd/mm/yy): ")
             date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
             filtered_projects = filter_projects(projects, date)
             display_project(filtered_projects)
         elif choice == "A":
-            add_new_project(projects)
+            add_new_valid_project(projects)
         elif choice == "U":
             validate_projects(projects)
             update_project(projects)
@@ -50,13 +50,13 @@ def main():
 
 
 def validate_projects(projects):
-    """Check whether projects exit or not."""
+    """Check whether a list of projects exit or not."""
     if not projects:
         print("No projects yet.")
         get_valid_projects(projects)
 
 
-def create_two_groups(projects):
+def divide_projects(projects):
     """Divide a list of projects to incomplete and completed projects."""
     incomplete_projects = []
     completed_projects = []
@@ -69,7 +69,7 @@ def create_two_groups(projects):
 
 
 def get_valid_projects(projects):
-    """Get projects from a file of project objects."""
+    """get projects from a valid file of project objects."""
     is_finished = True
     while is_finished:
         try:
@@ -110,8 +110,8 @@ def filter_projects(projects, date):
     return [project for project in projects if project.start_date >= date]
 
 
-def add_new_project(projects):
-    """Ask the user for the inputs and add a new project to memory"""
+def add_new_valid_project(projects):
+    """Ask the user for the valid inputs and add a new project to memory"""
     print("Let's add a new project")
     is_finished = True
     while is_finished:
@@ -136,14 +136,12 @@ def update_project(projects):
     print(projects[project_choice])
     try:
         new_percentage = int(input("New Percentage: "))
-        if new_percentage:
-            projects[project_choice].completion_percentage = new_percentage
+        projects[project_choice].completion_percentage = new_percentage
     except ValueError:
         pass
     try:
         new_priority = int(input("New Priority: "))
-        if new_priority:
-            projects[project_choice].completion_percentage = new_priority
+        projects[project_choice].priority = new_priority
     except ValueError:
         pass
 

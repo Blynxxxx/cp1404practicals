@@ -40,7 +40,7 @@ def main():
         print(language)
 
 
-# main()
+main()
 
 
 def using_csv():
