@@ -1,12 +1,13 @@
 """
 Project Management Program
-estimate time = 5 hours
+estimate time = 2 hours
+actual time = 5 hours
 """
 import datetime
 from prac_07.project import Project
 
 
-FILE_FIELD = "Name	Start Date	Priority	Cost Estimate	Completion Percentage\n"
+FILE_FIELD = "Name  Start Date  Priority    Cost Estimate   Completion Percentage\n"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects" \
        "\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
 
@@ -69,7 +70,7 @@ def divide_projects(projects):
 
 
 def get_valid_projects(projects):
-    """get projects from a valid file of project objects."""
+    """Get projects from a valid file of project objects."""
     is_finished = True
     while is_finished:
         try:
@@ -132,8 +133,16 @@ def update_project(projects):
     """Choose a project, then modify the completion % and/or priority - leave blank to retain existing values."""
     for i, project in enumerate(projects):
         print(f"{i} {project}")
-    project_choice = int(input("Project choice: "))
-    print(projects[project_choice])
+    is_finished = True
+    while is_finished:
+        try:
+            project_choice = int(input("Project choice: "))
+            print(projects[project_choice])
+            is_finished = False
+        except ValueError:
+            print("Invalid choice.")
+        except IndexError:
+            print("Invalid choice.")
     try:
         new_percentage = int(input("New Percentage: "))
         projects[project_choice].completion_percentage = new_percentage

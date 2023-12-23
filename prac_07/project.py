@@ -1,6 +1,7 @@
 """
 Project Management Program
-estimate time = 5 hours
+estimate time = 2 hours
+actual time = 5 hours
 """
 import datetime
 COMPLETION_PERCENTAGE = 100
