@@ -35,5 +35,11 @@ def choose_taxi(taxis):
     for i, taxi in enumerate(taxis):
         print(f"{i} - {taxi}")
 
+def display_bill_to_date(current_taxi):
+    if current_taxi:
+        fare = current_taxi.get_fare()
+    else:
+        fare = 0
+    print(f"Bill to date: ${fare :.2f}")
 
 main()
