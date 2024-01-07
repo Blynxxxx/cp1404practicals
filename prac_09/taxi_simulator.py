@@ -24,6 +24,11 @@ def main():
     pass
 
 
+def drive_taxi(current_taxi):
+    if current_taxi:
+        return current_taxi.drive()
+    print("You need to choose a taxi before you can drive")
+
 
 
 main()
