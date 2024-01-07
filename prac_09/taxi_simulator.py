@@ -30,5 +30,10 @@ def drive_taxi(current_taxi):
     print("You need to choose a taxi before you can drive")
 
 
+def choose_taxi(taxis):
+    print("Taxis available:")
+    for i, taxi in enumerate(taxis):
+        print(f"{i} - {taxi}")
+
 
 main()
