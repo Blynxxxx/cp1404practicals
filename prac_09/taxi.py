@@ -1,13 +1,14 @@
 """
 CP1404/CP5632 Practical
-Car class
+Taxi class, derived from Car
 """
 from prac_09.car import Car
 
 
 class Taxi(Car):
-    """Specialised version of a Car that includes fare costs."""
+    """Represent a Taxi object which is inherited from Car class."""
     price_per_km = 1.23
+
     def __init__(self, name, fuel):
         """Initialise a Taxi instance, based on parent class Car."""
         super().__init__(name, fuel)
@@ -18,8 +19,8 @@ class Taxi(Car):
         return f"{super().__str__()}, {self.current_fare_distance}km on current fare, ${self.price_per_km:.2f}/km"
 
     def get_fare(self):
-        """Return the price for the taxi trip."""
-        return self.price_per_km * self.current_fare_distance
+        """Get the price for the taxi trip."""
+        return round((self.price_per_km * self.current_fare_distance), 1)
 
     def start_fare(self):
         """Begin a new fare."""
