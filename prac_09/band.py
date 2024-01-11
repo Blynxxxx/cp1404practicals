@@ -1,23 +1,21 @@
 class Band:
+    """Represent a band object."""
+
     def __init__(self, name):
+        """Construct a band with a name and an empty list of musicians."""
         self.name = name
         self.musicians = []
 
     def __str__(self):
-        return f"{self.name} ({self.musicians})"
-
-    def __repr__(self):
-        """Return a string representation of a Band, showing the variables."""
-        return str(vars(self))
+        """Display a string representation of a band."""
+        return f"{self.name} ({','.join([str(musician) for musician in self.musicians])})"
 
     def play(self):
+        """Display a string showing the band playing with its musicians."""
         if not self.musicians:
             return f"{self.name} has no members!"
-        band_play = ""
-        for musician in self.musicians:
-            band_play += musician.play() + "\n"
-        return band_play
+        return '\n'.join([musician.play() for musician in self.musicians])
 
     def add(self, musician):
-        """Add an instrument to musician's collection."""
+        """Add a musician to band's musicians."""
         self.musicians.append(musician)
