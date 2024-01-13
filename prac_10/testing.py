@@ -69,6 +69,5 @@ def format_phrase_as_sentence(phrase):
 run_tests()
 
 # TODO: 3. Uncomment the following line and run the doctests
-# (PyCharm may see your >>> doctest comments and run doctests anyway.)
 doctest.testmod()
 
